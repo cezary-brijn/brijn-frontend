@@ -21,7 +21,7 @@ export default function BrijnScan() {
     formData.append("text", text);
 
     try {
-      const res = await fetch("http://localhost:8000/scan", {
+      const res = await fetch("https://brijn-backend.onrender.com/scan", {
         method: "POST",
         body: formData,
       });
