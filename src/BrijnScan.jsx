@@ -12,13 +12,13 @@ export default function BrijnScan() {
   };
 
   const handleSubmit = async () => {
-    if (!image || !text) return;
+    if (!image && !text) return;  // Możesz wysłać samo zdjęcie, sam tekst lub oba
     setLoading(true);
     setResult(null);
 
     const formData = new FormData();
-    formData.append("file", image);
-    formData.append("text", text);
+    if (image) formData.append("file", image);
+    if (text) formData.append("text", text);
 
     try {
       const res = await fetch("https://brijn-backend.onrender.com/scan", {
@@ -52,7 +52,7 @@ export default function BrijnScan() {
         rows={5}
         style={{ width: "100%", marginTop: "1rem" }}
       />
-      <button onClick={handleSubmit} disabled={loading || !image || !text}>
+      <button onClick={handleSubmit} disabled={loading || (!image && !text)}>
         {loading ? "Scanning..." : "Skanuj"}
       </button>
       {result && (
