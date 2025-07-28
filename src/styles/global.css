@@ -14,7 +14,7 @@
 /* Reset + czcionki */
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
 }
